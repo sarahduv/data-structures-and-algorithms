@@ -1,3 +1,4 @@
+
 # Created by https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
 
 ### Linux ###
@@ -223,11 +224,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# My python scripts
-*.py
-
-# My Content files
-content/
-notes/
 
 # End of https://www.gitignore.io/api/node,macos,linux,windows,webstorm,visualstudiocode
