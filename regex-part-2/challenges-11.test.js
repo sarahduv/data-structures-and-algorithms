@@ -82,13 +82,25 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
 ------------------------------------------------------------------------------------------------ */
 
-const findTagNames = elements => {
-  // Solution code here...
-  let regEx = /^.*<\/(\w+)>$/gm;
-  const result = elements.map(html_text => regEx.exec(html_text)[1]);
+// const findTagNames = elements => {
+// Solution code here...
+// let regEx = /^.*<\/(\w+)>$/gm;
+// const result = elements.map(html_text => regEx.exec(html_text)[1]);
 
-  return result;
+// return result;
+
+const findTagNames = elements => {
+  let target = [];
+  let regex = /\/\w+/gm;
+  elements.forEach(element => {
+    let spot = element.match(regex);
+    spot.forEach(targetTag => {
+      target.push(targetTag);
+    })
+  })
+  return target;
 };
+// };
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
@@ -167,7 +179,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return the closing tags', () => {
     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
   });
